@@ -1,0 +1,633 @@
+/* ============================================
+   BUGATTI CLONE — DESIGN SYSTEM
+   ============================================ */
+
+:root {
+  --bg: #000000;
+  --bg-card: #0a0a0a;
+  --bg-soft: #111111;
+  --text: #ffffff;
+  --text-muted: #8a8a8a;
+  --text-dim: #5a5a5a;
+  --accent: #BB0A30;
+  --border: rgba(255,255,255,0.12);
+  --border-strong: rgba(255,255,255,0.35);
+
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-script: 'Allura', cursive;
+
+  --header-h: 72px;
+  --max-w: 1440px;
+  --pad-x: clamp(20px, 4vw, 64px);
+}
+
+/* ============================================
+   RESET
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+button { background: none; border: none; cursor: pointer; color: inherit; font: inherit; }
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+.section-title {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+}
+
+.script-title {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(4rem, 10vw, 8rem);
+  line-height: 1;
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+
+.mono-title {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn-pill {
+  display: inline-block;
+  padding: 14px 32px;
+  border: 1px solid var(--text);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-pill:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.learn-more {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 4px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+.learn-more:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ============================================
+   HEADER
+   ============================================ */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  z-index: 100;
+  background: transparent;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+.site-header.scrolled {
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(10px);
+}
+.header-inner {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 var(--pad-x);
+}
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.menu-icon {
+  width: 22px;
+  height: 14px;
+  position: relative;
+  display: inline-block;
+}
+.menu-icon::before, .menu-icon::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 1.5px;
+  background: var(--text);
+  transition: transform 0.3s;
+}
+.menu-icon::before { top: 0; }
+.menu-icon::after  { bottom: 0; }
+.brand-logo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.15em;
+  text-align: center;
+}
+.store-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-self: end;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   FULLSCREEN MENU OVERLAY
+   ============================================ */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.97);
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s;
+}
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+.menu-close {
+  position: absolute;
+  top: 24px;
+  right: var(--pad-x);
+  font-size: 2.2rem;
+  line-height: 1;
+}
+.menu-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--pad-x);
+}
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  text-align: center;
+}
+.menu-list a {
+  font-family: var(--font-mono);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.menu-list a:hover { color: var(--accent); }
+
+/* ============================================
+   HERO — F.K.P.
+   ============================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.hero-fkp .hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=2400&auto=format&fit=crop&q=80') center/cover no-repeat;
+  filter: brightness(0.55) saturate(1.1);
+  animation: slow-zoom 20s ease-in-out infinite alternate;
+}
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.6) 100%),
+    linear-gradient(to bottom, transparent 60%, var(--bg) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 var(--pad-x);
+}
+.hero-title {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 5vw, 4.2rem);
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.hero-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 2rem;
+}
+
+/* ============================================
+   HERO — SOLITAIRE
+   ============================================ */
+.hero-solitaire {
+  background: var(--bg);
+}
+.hero-solitaire .script-title {
+  margin-bottom: 1rem;
+}
+
+/* ============================================
+   LA MAISON BUGATTI
+   ============================================ */
+.maison {
+  padding: 6rem 0 8rem;
+  background: var(--bg);
+}
+.maison-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.maison-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.maison-img {
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+.maison-card:hover .maison-img { transform: scale(1.03); }
+.maison-card h3 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2vw, 1.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* ============================================
+   QUOTE SECTION
+   ============================================ */
+.quote-section {
+  padding: 6rem 0 8rem;
+  text-align: center;
+  overflow: hidden;
+}
+.quote-script {
+  font-family: var(--font-script);
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  line-height: 1.1;
+  padding: 0 var(--pad-x);
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+/* ============================================
+   HYPER SPORTS CARS
+   ============================================ */
+.hyper-cars {
+  padding: 6rem 0 8rem;
+  background: var(--bg-soft);
+}
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+.car-card {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+}
+.car-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.8s ease, filter 0.5s ease;
+  filter: brightness(0.75);
+}
+.car-card:hover .car-img {
+  transform: scale(1.06);
+  filter: brightness(0.85);
+}
+.car-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  z-index: 2;
+}
+.car-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.car-overlay .script-title {
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+}
+.car-learn {
+  position: absolute;
+  bottom: 1.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+/* ============================================
+   SUR MESURE
+   ============================================ */
+.sur-mesure {
+  padding: 6rem 0 8rem;
+  background: var(--bg);
+}
+.sur-mesure-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+.sur-mesure-img {
+  background-size: cover;
+  background-position: center;
+  min-height: 480px;
+}
+.sur-mesure-text {
+  padding: clamp(2rem, 5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.sur-mesure-text p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  max-width: 38ch;
+}
+
+/* ============================================
+   INSTAGRAM FEED
+   ============================================ */
+.insta-feed {
+  padding: 4rem 0 6rem;
+  background: var(--bg);
+}
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.insta-post {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.insta-post::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  transition: background 0.3s ease;
+}
+.insta-post:hover::after { background: rgba(0,0,0,0.55); }
+.insta-meta {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+.insta-post:hover .insta-meta { opacity: 1; }
+.insta-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  position: relative;
+  background: var(--bg);
+  padding: 5rem 0 0;
+  border-top: 1px solid var(--border);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+.footer-col h4 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+}
+.footer-col ul li { margin-bottom: 0.75rem; }
+.footer-col ul a {
+  font-size: 0.92rem;
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+.footer-col ul a:hover { color: var(--text-muted); }
+
+/* Tourbillon/Mistral etc shown uppercase in first column */
+.footer-col:first-child ul a {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.footer-bottom {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+}
+.copyright {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+.legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.legal-links a {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+.legal-links a:hover { color: var(--text); }
+.socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.socials a {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: var(--text);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.socials a:hover { background: var(--text); color: var(--bg); }
+.socials svg { width: 14px; height: 14px; }
+
+.footer-bottom-right h4 {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  margin-bottom: 1rem;
+}
+.lang-switch a {
+  font-size: 0.95rem;
+  margin-right: 1rem;
+  color: var(--text-muted);
+}
+.lang-switch a.active { color: var(--text); }
+
+/* Background watermark */
+.watermark {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(8rem, 25vw, 20rem);
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: rgba(255,255,255,0.05);
+  line-height: 0.85;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+  padding-bottom: 0;
+}
+
+/* ============================================
+   REVEAL ANIMATION
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .maison-grid { grid-template-columns: repeat(2, 1fr); }
+  .cars-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  .sur-mesure-grid { grid-template-columns: 1fr; }
+  .sur-mesure-img { min-height: 320px; }
+  .insta-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  :root { --header-h: 60px; }
+  .menu-label, .store-link span { display: none; }
+  .hero-title { font-size: 1.6rem; }
+  .maison-grid, .cars-grid { grid-template-columns: 1fr; }
+  .insta-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { grid-template-columns: 1fr; }
+  .quote-script { white-space: normal; }
+  .car-overlay .script-title { font-size: 2.4rem; }
+  .legal-links { gap: 0.5rem 1rem; }
+}
+
+@media (max-width: 480px) {
+  .brand-logo { font-size: 1.1rem; }
+  .btn-pill { padding: 12px 22px; font-size: 0.7rem; }
+}
