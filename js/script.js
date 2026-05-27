@@ -125,6 +125,9 @@
   }
 
   // ---- PROBEFAHRT-FORMULAR ----
+  // Formspree: nach Registrierung auf formspree.io die eigene Form-ID hier eintragen
+  const FORMSPREE_ID = 'YOUR_FORM_ID';
+
   const form = document.getElementById('probefahrtForm');
   const formSuccess = document.getElementById('formSuccess');
 
@@ -143,7 +146,7 @@
       if (el) el.addEventListener('blur', () => validateField(id));
     });
 
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
       const allValid = required.every(id => validateField(id));
       if (!allValid) return;
@@ -151,15 +154,33 @@
       const btn = form.querySelector('[type="submit"]');
       btn.textContent = 'WIRD GESENDET …';
       btn.disabled = true;
+      formSuccess.textContent = '';
+      formSuccess.style.color = '';
 
-      // Simulate async submit (replace with real fetch for production)
-      setTimeout(() => {
+      const useFormspree = FORMSPREE_ID !== 'YOUR_FORM_ID';
+
+      try {
+        if (useFormspree) {
+          const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (!res.ok) throw new Error('send_failed');
+        } else {
+          await new Promise(r => setTimeout(r, 900));
+        }
+
         form.reset();
+        formSuccess.textContent = '✓ Anfrage gesendet! Wir melden uns innerhalb von 24 Stunden.';
+        setTimeout(() => { formSuccess.textContent = ''; }, 7000);
+      } catch {
+        formSuccess.style.color = '#e55';
+        formSuccess.textContent = '⚠ Fehler beim Senden. Bitte rufen Sie uns an: +49 40 7679596-0';
+      } finally {
         btn.textContent = 'TERMIN ANFRAGEN';
         btn.disabled = false;
-        formSuccess.textContent = '✓ Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns innerhalb von 24 Stunden.';
-        setTimeout(() => { formSuccess.textContent = ''; }, 6000);
-      }, 1200);
+      }
     });
   }
 
