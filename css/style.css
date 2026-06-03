@@ -1,21 +1,22 @@
 /* ============================================
-   BUGATTI CLONE — DESIGN SYSTEM
+   MTM — MOTOREN TECHNIK MAYER — DESIGN SYSTEM
    ============================================ */
 
 :root {
   --bg: #000000;
   --bg-card: #0a0a0a;
-  --bg-soft: #111111;
+  --bg-soft: #0e0e0e;
   --text: #ffffff;
   --text-muted: #8a8a8a;
   --text-dim: #5a5a5a;
-  --accent: #BB0A30;
+  --accent: #E2001A;          /* MTM signature red */
+  --silver: #c7ccd1;          /* brushed-metal accent */
   --border: rgba(255,255,255,0.12);
   --border-strong: rgba(255,255,255,0.35);
 
   --font-mono: 'Space Mono', 'Courier New', monospace;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --font-script: 'Allura', cursive;
+  --font-script: 'Oswald', 'Inter', sans-serif;   /* condensed motorsport display */
 
   --header-h: 72px;
   --max-w: 1440px;
@@ -67,10 +68,11 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 
 .script-title {
   font-family: var(--font-script);
-  font-weight: 400;
-  font-size: clamp(4rem, 10vw, 8rem);
-  line-height: 1;
+  font-weight: 600;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 0.95;
   color: #fff;
+  text-transform: uppercase;
   letter-spacing: 0.01em;
 }
 
@@ -104,6 +106,16 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 .btn-pill:hover {
   background: var(--text);
   color: var(--bg);
+}
+.btn-pill.btn-accent {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.btn-pill.btn-accent:hover {
+  background: #ff1f33;
+  border-color: #ff1f33;
+  color: #fff;
 }
 
 .learn-more {
@@ -244,8 +256,8 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 .hero-fkp .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=2400&auto=format&fit=crop&q=80') center/cover no-repeat;
-  filter: brightness(0.55) saturate(1.1);
+  background: url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=2400&auto=format&fit=crop&q=80') center/cover no-repeat;
+  filter: brightness(0.5) saturate(1.05) contrast(1.05);
   animation: slow-zoom 20s ease-in-out infinite alternate;
 }
 @keyframes slow-zoom {
@@ -333,12 +345,15 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 }
 .quote-script {
   font-family: var(--font-script);
-  font-size: clamp(2.5rem, 8vw, 6rem);
-  line-height: 1.1;
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  line-height: 1.05;
   padding: 0 var(--pad-x);
   white-space: nowrap;
-  font-weight: 400;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
+.quote-script .accent { color: var(--accent); }
 
 /* ============================================
    HYPER SPORTS CARS
@@ -390,7 +405,20 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   margin-bottom: 0.75rem;
 }
 .car-overlay .script-title {
-  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+}
+.car-power {
+  margin-top: 0.6rem;
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  padding: 5px 12px;
+  border-radius: 999px;
 }
 .car-learn {
   position: absolute;
