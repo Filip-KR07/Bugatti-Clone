@@ -178,12 +178,17 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 .menu-icon::before { top: 0; }
 .menu-icon::after  { bottom: 0; }
 .brand-logo {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 1.4rem;
-  letter-spacing: 0.15em;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+.brand-logo img {
+  height: 46px;
+  width: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.brand-logo:hover img { transform: scale(1.05); }
 .store-link {
   display: flex;
   align-items: center;
@@ -656,6 +661,6 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 }
 
 @media (max-width: 480px) {
-  .brand-logo { font-size: 1.1rem; }
+  .brand-logo img { height: 38px; }
   .btn-pill { padding: 12px 22px; font-size: 0.7rem; }
 }
