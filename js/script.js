@@ -75,4 +75,28 @@
     }, { passive: true });
   }
 
+  // ---- SHOP: add-to-cart counter ----
+  const cartCount = document.querySelector('.cart-count');
+  if (cartCount) {
+    let count = 0;
+    document.querySelectorAll('.btn-cart').forEach(btn => {
+      btn.addEventListener('click', () => {
+        count += 1;
+        cartCount.textContent = count;
+        btn.textContent = 'Hinzugefügt ✓';
+        setTimeout(() => { btn.textContent = 'In den Warenkorb'; }, 1200);
+      });
+    });
+  }
+
+  // ---- SHOP: category chip active state ----
+  const chips = document.querySelectorAll('.shop-chip');
+  chips.forEach(chip => {
+    chip.addEventListener('click', e => {
+      e.preventDefault();
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+    });
+  });
+
 })();

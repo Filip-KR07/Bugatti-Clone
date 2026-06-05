@@ -22,9 +22,10 @@
     <a href="#" class="brand-logo" aria-label="MTM – Motoren Technik Mayer">
       <img src="img/mtm-logo.jpg" alt="MTM – Motoren Technik Mayer" />
     </a>
-    <a href="#" class="store-link">
+    <a href="#shop" class="store-link">
       <span>SHOP</span>
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 7h12l-1.5 12H7.5L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+      <span class="cart-count">0</span>
     </a>
   </div>
 </header>
@@ -34,11 +35,12 @@
   <button class="menu-close" id="menuClose" aria-label="Menü schließen">&times;</button>
   <div class="menu-content">
     <ul class="menu-list">
-      <li><a href="#fahrzeuge">Fahrzeuge</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#shop">Räder</a></li>
+      <li><a href="#shop">Leistung</a></li>
+      <li><a href="#shop">Bekleidung</a></li>
       <li><a href="#manufaktur">Die Manufaktur</a></li>
-      <li><a href="#individual">Individualisierung</a></li>
-      <li><a href="#lifestyle">Lifestyle</a></li>
-      <li><a href="#news">News</a></li>
+      <li><a href="#individual">Service &amp; Montage</a></li>
       <li><a href="#standort">Standort</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
@@ -51,17 +53,17 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-title">MTM — MOTOREN TECHNIK MAYER</h1>
-    <p class="hero-subtitle">TUNING &amp; INDIVIDUALISIERUNG · SEIT 1990</p>
-    <a href="#fahrzeuge" class="btn btn-pill btn-accent">MEHR LEISTUNG ENTDECKEN</a>
+    <p class="hero-subtitle">SHOP · RÄDER · LEISTUNG · LIFESTYLE · SEIT 1990</p>
+    <a href="#shop" class="btn btn-pill btn-accent">ZUM SHOP</a>
   </div>
 </section>
 
 <!-- ========== HERO 2: BIMOTO ========== -->
 <section class="hero hero-solitaire">
   <div class="hero-content">
-    <h2 class="script-title">Bimoto</h2>
-    <p class="hero-subtitle">ZWEI MOTOREN. ÜBER 1.000 PS. EIN NARDÒ-MYTHOS.</p>
-    <a href="#" class="btn btn-pill">DIE LEGENDE ENTDECKEN</a>
+    <h2 class="script-title">MTM Räder</h2>
+    <p class="hero-subtitle">BIMOTO · NARDO · HOCKENHEIM — GESCHMIEDET IN WETTSTETTEN</p>
+    <a href="#shop" class="btn btn-pill">RÄDER ENTDECKEN</a>
   </div>
 </section>
 
@@ -94,70 +96,114 @@
   <p class="quote-script">Performance ist <span class="accent">Handwerk</span>.</p>
 </section>
 
-<!-- ========== UNSERE FAHRZEUGE ========== -->
-<section class="hyper-cars" id="fahrzeuge">
+<!-- ========== SHOP ========== -->
+<section class="shop" id="shop">
   <div class="container">
-    <h2 class="section-title">UNSERE FAHRZEUGE</h2>
-    <div class="cars-grid">
+    <h2 class="section-title">MTM SHOP</h2>
+    <p class="section-subtitle">Räder, Leistung und Lifestyle — direkt aus der Manufaktur in Wettstetten.</p>
 
-      <article class="car-card reveal">
-        <div class="car-img" style="background-image:url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1200&auto=format&fit=crop&q=80')"></div>
-        <div class="car-overlay">
-          <span class="car-tagline">BITURBO V8 · BREITBAU</span>
-          <h3 class="script-title">RS6-R</h3>
-          <span class="car-power">802 PS</span>
+    <div class="shop-categories">
+      <a href="#shop" class="shop-chip active">Alle</a>
+      <a href="#shop" class="shop-chip">Räder</a>
+      <a href="#shop" class="shop-chip">Leistung</a>
+      <a href="#shop" class="shop-chip">Bekleidung</a>
+      <a href="#shop" class="shop-chip">Zubehör</a>
+    </div>
+
+    <div class="shop-grid">
+
+      <article class="product-card reveal">
+        <div class="product-img" style="background-image:url('img/products/rad-bimoto.jpg')">
+          <span class="product-badge">Bestseller</span>
         </div>
-        <a href="#" class="learn-more car-learn">MEHR ERFAHREN</a>
+        <div class="product-info">
+          <span class="product-cat">Räder</span>
+          <h3 class="product-name">MTM Bimoto Schmiederad 21"</h3>
+          <p class="product-price"><span class="from">ab</span>1.290 €</p>
+          <button class="btn-cart">In den Warenkorb</button>
+        </div>
       </article>
 
-      <article class="car-card reveal">
-        <div class="car-img" style="background-image:url('https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=1200&auto=format&fit=crop&q=80')"></div>
-        <div class="car-overlay">
-          <span class="car-tagline">DER NARDÒ-REKORDHALTER</span>
-          <h3 class="script-title">R8 Biturbo</h3>
-          <span class="car-power">802 PS</span>
+      <article class="product-card reveal">
+        <div class="product-img" style="background-image:url('img/products/rad-nardo.jpg')"></div>
+        <div class="product-info">
+          <span class="product-cat">Räder</span>
+          <h3 class="product-name">MTM Nardo Schmiederad 20"</h3>
+          <p class="product-price"><span class="from">ab</span>1.190 €</p>
+          <button class="btn-cart">In den Warenkorb</button>
         </div>
-        <a href="#" class="learn-more car-learn">MEHR ERFAHREN</a>
       </article>
 
-      <article class="car-card reveal">
-        <div class="car-img" style="background-image:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&auto=format&fit=crop&q=80')"></div>
-        <div class="car-overlay">
-          <span class="car-tagline">GRAND TOURER, NEU INTERPRETIERT</span>
-          <h3 class="script-title">Birkin</h3>
-          <span class="car-power">710 PS</span>
+      <article class="product-card reveal">
+        <div class="product-img" style="background-image:url('img/products/rad-hockenheim.jpg')"></div>
+        <div class="product-info">
+          <span class="product-cat">Räder</span>
+          <h3 class="product-name">MTM Hockenheim Rad 19"</h3>
+          <p class="product-price"><span class="from">ab</span>990 €</p>
+          <button class="btn-cart">In den Warenkorb</button>
         </div>
-        <a href="#" class="learn-more car-learn">MEHR ERFAHREN</a>
       </article>
 
-      <article class="car-card reveal">
-        <div class="car-img" style="background-image:url('https://images.unsplash.com/photo-1580414057403-c5f451f30e1c?w=1200&auto=format&fit=crop&q=80')"></div>
-        <div class="car-overlay">
-          <span class="car-tagline">ITALIENISCHE PRÄZISION</span>
-          <h3 class="script-title">Huracán</h3>
-          <span class="car-power">670 PS</span>
+      <article class="product-card reveal">
+        <div class="product-img" style="background-image:url('img/products/leistung-cantronic.jpg')">
+          <span class="product-badge">Mehrleistung</span>
         </div>
-        <a href="#" class="learn-more car-learn">MEHR ERFAHREN</a>
+        <div class="product-info">
+          <span class="product-cat">Leistung</span>
+          <h3 class="product-name">MTM Cantronic Leistungssteigerung</h3>
+          <p class="product-price"><span class="from">ab</span>1.490 €</p>
+          <button class="btn-cart">In den Warenkorb</button>
+        </div>
       </article>
 
-      <article class="car-card reveal">
-        <div class="car-img" style="background-image:url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1200&auto=format&fit=crop&q=80')"></div>
-        <div class="car-overlay">
-          <span class="car-tagline">KOMPAKT. KOMPROMISSLOS.</span>
-          <h3 class="script-title">Golf R</h3>
-          <span class="car-power">420 PS</span>
+      <article class="product-card reveal">
+        <div class="product-img" style="background-image:url('img/products/leistung-abgas.jpg')"></div>
+        <div class="product-info">
+          <span class="product-cat">Leistung</span>
+          <h3 class="product-name">MTM Sportabgasanlage</h3>
+          <p class="product-price"><span class="from">ab</span>2.490 €</p>
+          <button class="btn-cart">In den Warenkorb</button>
         </div>
-        <a href="#" class="learn-more car-learn">MEHR ERFAHREN</a>
       </article>
 
-      <article class="car-card reveal">
-        <div class="car-img" style="background-image:url('https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=1200&auto=format&fit=crop&q=80')"></div>
-        <div class="car-overlay">
-          <span class="car-tagline">ZWEI MOTOREN. EIN MYTHOS.</span>
-          <h3 class="script-title">Bimoto</h3>
-          <span class="car-power">1.200 PS</span>
+      <article class="product-card reveal">
+        <div class="product-img" style="background-image:url('img/products/leistung-luftfilter.jpg')"></div>
+        <div class="product-info">
+          <span class="product-cat">Leistung</span>
+          <h3 class="product-name">MTM Sportluftfilter</h3>
+          <p class="product-price">149 €</p>
+          <button class="btn-cart">In den Warenkorb</button>
         </div>
-        <a href="#" class="learn-more car-learn">MEHR ERFAHREN</a>
+      </article>
+
+      <article class="product-card reveal">
+        <div class="product-img" style="background-image:url('img/products/bekleidung-polo.jpg')"></div>
+        <div class="product-info">
+          <span class="product-cat">Bekleidung</span>
+          <h3 class="product-name">MTM Poloshirt</h3>
+          <p class="product-price">59 €</p>
+          <button class="btn-cart">In den Warenkorb</button>
+        </div>
+      </article>
+
+      <article class="product-card reveal">
+        <div class="product-img" style="background-image:url('img/products/bekleidung-cap.jpg')"></div>
+        <div class="product-info">
+          <span class="product-cat">Bekleidung</span>
+          <h3 class="product-name">MTM Cap</h3>
+          <p class="product-price">29 €</p>
+          <button class="btn-cart">In den Warenkorb</button>
+        </div>
+      </article>
+
+      <article class="product-card reveal">
+        <div class="product-img" style="background-image:url('img/products/zubehoer-tasse.jpg')"></div>
+        <div class="product-info">
+          <span class="product-cat">Zubehör</span>
+          <h3 class="product-name">MTM Tasse</h3>
+          <p class="product-price">14 €</p>
+          <button class="btn-cart">In den Warenkorb</button>
+        </div>
       </article>
 
     </div>
@@ -215,15 +261,15 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col">
-        <h4>FAHRZEUGE</h4>
+        <h4>SHOP</h4>
         <ul>
-          <li><a href="#">RS6-R</a></li>
-          <li><a href="#">R8 BITURBO</a></li>
-          <li><a href="#">BENTLEY BIRKIN</a></li>
-          <li><a href="#">LAMBORGHINI HURACÁN</a></li>
-          <li><a href="#">GOLF R</a></li>
-          <li><a href="#">TT-RS</a></li>
-          <li><a href="#">BIMOTO</a></li>
+          <li><a href="#shop">MTM Räder</a></li>
+          <li><a href="#shop">Leistungssteigerung</a></li>
+          <li><a href="#shop">Abgasanlagen</a></li>
+          <li><a href="#shop">Bekleidung</a></li>
+          <li><a href="#shop">Zubehör</a></li>
+          <li><a href="#shop">Gutscheine</a></li>
+          <li><a href="#shop">Warenkorb</a></li>
         </ul>
       </div>
       <div class="footer-col" id="news">
