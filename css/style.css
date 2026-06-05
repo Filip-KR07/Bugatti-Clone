@@ -147,9 +147,9 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 }
 .header-inner {
   height: 100%;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
+  gap: 1.75rem;
   padding: 0 var(--pad-x);
 }
 .menu-toggle {
@@ -162,8 +162,8 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   text-transform: uppercase;
 }
 .menu-icon {
-  width: 22px;
-  height: 14px;
+  width: 24px;
+  height: 16px;
   position: relative;
   display: inline-block;
 }
@@ -171,7 +171,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   content: '';
   position: absolute;
   left: 0; right: 0;
-  height: 1.5px;
+  height: 2px;
   background: var(--text);
   transition: transform 0.3s;
 }
@@ -183,22 +183,65 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   justify-content: center;
 }
 .brand-logo img {
-  height: 46px;
+  height: 48px;
   width: auto;
   display: block;
   transition: transform 0.3s ease;
 }
 .brand-logo:hover img { transform: scale(1.05); }
-.store-link {
+
+/* header contact (phone + email) */
+.header-contact {
   display: flex;
   align-items: center;
-  gap: 10px;
-  justify-self: end;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  gap: 1.6rem;
 }
+.hc-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  white-space: nowrap;
+}
+.hc-item svg { flex-shrink: 0; color: var(--accent); }
+.hc-item:hover { color: var(--accent); }
+
+/* header actions (lang + cart + menu) */
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.lang-toggle {
+  display: inline-flex;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.lang-toggle a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 5px 10px;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+}
+.lang-toggle a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.cart-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text);
+}
+.cart-link:hover { color: var(--accent); }
 
 /* ============================================
    FULLSCREEN MENU OVERLAY
@@ -769,6 +812,64 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 }
 .btn-cart:hover { background: #ff1f33; }
 
+/* ---- module tiles (categories / services) ---- */
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.2rem;
+}
+.module-card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #111;
+  display: block;
+}
+.module-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #1a1a1a;
+  transition: transform 0.6s ease;
+}
+.module-card:hover .module-img { transform: scale(1.07); }
+.module-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.3rem 1.2rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0) 75%);
+}
+.module-card::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+  z-index: 3;
+}
+.module-card:hover::after { transform: scaleX(1); }
+.module-title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.15;
+  margin-bottom: 0.35rem;
+}
+.module-sub {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
 /* ============================================
    RESPONSIVE
    ============================================ */
@@ -782,12 +883,19 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   .insta-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
+@media (max-width: 1024px) {
+  .header-contact .hc-mail { display: none; }
+}
+
 @media (max-width: 768px) {
   :root { --header-h: 60px; }
   .menu-label, .store-link span { display: none; }
+  .header-contact { display: none; }
+  .header-inner { gap: 1rem; }
   .hero-title { font-size: 1.6rem; }
   .maison-grid, .cars-grid { grid-template-columns: 1fr; }
   .shop-grid { grid-template-columns: 1fr; }
+  .module-grid { grid-template-columns: repeat(3, 1fr); }
   .insta-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom { grid-template-columns: 1fr; }
@@ -797,6 +905,8 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 }
 
 @media (max-width: 480px) {
-  .brand-logo img { height: 38px; }
+  .brand-logo img { height: 36px; }
   .btn-pill { padding: 12px 22px; font-size: 0.7rem; }
+  .module-grid { grid-template-columns: repeat(2, 1fr); }
+  .header-actions { gap: 0.8rem; }
 }

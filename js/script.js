@@ -75,28 +75,44 @@
     }, { passive: true });
   }
 
-  // ---- SHOP: add-to-cart counter ----
+  // ---- LANGUAGE TOGGLE (DE / EN) ----
+  const LANG_KEY = 'mtm-lang';
+  const i18nEls = document.querySelectorAll('[data-de]');
+  const langLinks = document.querySelectorAll('.lang-toggle a');
+
+  function setLang(lang) {
+    if (lang !== 'de' && lang !== 'en') lang = 'de';
+    document.documentElement.lang = lang;
+    i18nEls.forEach(el => {
+      const val = el.getAttribute('data-' + lang);
+      if (val !== null) el.innerHTML = val;
+    });
+    langLinks.forEach(a => a.classList.toggle('active', a.dataset.lang === lang));
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+  }
+
+  let initial = 'de';
+  try { initial = localStorage.getItem(LANG_KEY) || 'de'; } catch (e) {}
+  setLang(initial);
+
+  langLinks.forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      setLang(a.dataset.lang);
+    });
+  });
+
+  // ---- SHOP: add-to-cart counter (defensive — only if buttons exist) ----
   const cartCount = document.querySelector('.cart-count');
-  if (cartCount) {
+  const cartBtns = document.querySelectorAll('.btn-cart');
+  if (cartCount && cartBtns.length) {
     let count = 0;
-    document.querySelectorAll('.btn-cart').forEach(btn => {
+    cartBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         count += 1;
         cartCount.textContent = count;
-        btn.textContent = 'Hinzugefügt ✓';
-        setTimeout(() => { btn.textContent = 'In den Warenkorb'; }, 1200);
       });
     });
   }
-
-  // ---- SHOP: category chip active state ----
-  const chips = document.querySelectorAll('.shop-chip');
-  chips.forEach(chip => {
-    chip.addEventListener('click', e => {
-      e.preventDefault();
-      chips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-    });
-  });
 
 })();
