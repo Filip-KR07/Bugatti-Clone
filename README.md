@@ -1,36 +1,36 @@
-# Bugatti Clone
+# MTM Demo
 
-Replica of the official BUGATTI website (https://www.bugatti.com) — built with vanilla HTML, CSS and JavaScript. No build step required.
+Demo-Website für **MTM – Motoren Technik Mayer** (https://www.mtm-online.de) — Tuning und Individualisierung für Audi, VW, Bentley, Lamborghini und Porsche. Aufgebaut mit reinem HTML, CSS und JavaScript. Kein Build-Schritt nötig.
 
-## Structure
+Die Seite teilt sich denselben Vanilla-Aufbau wie die ursprüngliche Bugatti-Vorlage (Header-Scroll, Fullscreen-Menü, Scroll-Reveal, Parallax-Hero).
+
+## Struktur
 
 ```
 Bugatti-Clone/
-├── index.html      # Single-page site
-├── css/style.css   # All styles (design system, components, responsive)
-├── js/script.js    # Header scroll, menu overlay, scroll reveal, parallax
-└── img/            # Local image assets (currently uses Unsplash CDN placeholders)
+├── index.html        # MTM Demo (Single-Page)
+├── css/style.css     # Alle Styles (Designsystem, Komponenten, Responsive)
+├── js/script.js      # Header-Scroll, Menü-Overlay, Scroll-Reveal, Parallax
+└── renault/          # Zweite Demo: Autohaus S+K (Renault & Dacia Hamburg-Harburg)
+    ├── index.html
+    ├── css/style.css
+    ├── js/script.js
+    └── IMG_*.jpeg/png # Lokale Fahrzeugbilder
 ```
 
-## Sections
+## Demos
 
-1. Header (sticky, transparent → solid on scroll)
-2. Hero "F.K.P. Hommage" with parallax bg
-3. Hero "Solitaire" (script logo)
-4. La Maison Bugatti (3-card grid)
-5. Handwritten quote
-6. Our Hyper Sports Cars (6-card grid)
-7. Bugatti Sur Mesure
-8. Instagram feed (6 posts)
-9. Footer (4 columns + legal)
-10. Background watermark
+- **MTM** — im Projekt-Root, `index.html` direkt öffnen.
+- **Renault (Autohaus S+K)** — `renault/index.html` öffnen.
 
-## Local preview
+Die Bugatti-Originalvorlage bleibt jederzeit in der Git-Historie erhalten (Commit `43f2033`).
 
-Just open `index.html` in a browser — no server required.
+## Lokale Vorschau
 
-## Notes
+`index.html` (bzw. `renault/index.html`) einfach im Browser öffnen — kein Server nötig.
 
-- Images are CDN placeholders (Unsplash). For production, swap with licensed Bugatti imagery.
-- Fonts: Inter + Space Mono + Allura (Google Fonts).
-- Designed for desktop ≥1024px, responsive down to 480px.
+## Hinweise
+
+- MTM-Bilder sind CDN-Platzhalter (Unsplash). Für die Produktion durch lizenzierte MTM-Aufnahmen ersetzen.
+- Schriften: Inter + Space Mono + Oswald (Google Fonts), Akzentfarbe MTM-Rot `#E2001A`.
+- Designt für Desktop ≥1024px, responsiv bis 480px.
