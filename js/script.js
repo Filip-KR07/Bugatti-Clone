@@ -78,6 +78,7 @@
   // ---- LANGUAGE TOGGLE (DE / EN) ----
   const LANG_KEY = 'mtm-lang';
   const i18nEls = document.querySelectorAll('[data-de]');
+  const phEls = document.querySelectorAll('[data-de-ph]');
   const langLinks = document.querySelectorAll('.lang-toggle a');
 
   function setLang(lang) {
@@ -86,6 +87,10 @@
     i18nEls.forEach(el => {
       const val = el.getAttribute('data-' + lang);
       if (val !== null) el.innerHTML = val;
+    });
+    phEls.forEach(el => {
+      const val = el.getAttribute('data-' + lang + '-ph');
+      if (val !== null) el.placeholder = val;
     });
     langLinks.forEach(a => a.classList.toggle('active', a.dataset.lang === lang));
     try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
@@ -101,6 +106,21 @@
       setLang(a.dataset.lang);
     });
   });
+
+  // ---- CONTACT FORM (demo: no backend) ----
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+  if (contactForm && formStatus) {
+    contactForm.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+      contactForm.reset();
+      formStatus.hidden = false;
+    });
+  }
 
   // ---- SHOP: add-to-cart counter (defensive — only if buttons exist) ----
   const cartCount = document.querySelector('.cart-count');

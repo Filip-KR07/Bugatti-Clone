@@ -238,6 +238,34 @@
   </div>
 </section>
 
+<!-- ========== KONTAKTFORMULAR ========== -->
+<section class="contact" id="nachricht">
+  <div class="container">
+    <h2 class="section-title" data-de="SCHICKEN SIE UNS EINE NACHRICHT!" data-en="SEND US A MESSAGE!">SCHICKEN SIE UNS EINE NACHRICHT!</h2>
+    <form class="contact-form" id="contactForm" novalidate>
+      <div class="form-row">
+        <input type="text" name="name" required
+               aria-label="Name"
+               data-de-ph="Name" data-en-ph="Name" placeholder="Name" />
+        <input type="email" name="email" required
+               aria-label="E-Mail"
+               data-de-ph="E-Mail (*)" data-en-ph="E-mail (*)" placeholder="E-Mail (*)" />
+      </div>
+      <input type="tel" name="phone"
+             aria-label="Telefon"
+             data-de-ph="Telefon" data-en-ph="Phone" placeholder="Telefon" />
+      <textarea name="message" rows="6" required
+                aria-label="Nachricht"
+                data-de-ph="Ihre Nachricht" data-en-ph="Your message" placeholder="Ihre Nachricht"></textarea>
+      <button type="submit" class="btn btn-pill btn-accent"
+              data-de="NACHRICHT SENDEN" data-en="SEND MESSAGE">NACHRICHT SENDEN</button>
+      <p class="form-status" id="formStatus" role="status"
+         data-de="Vielen Dank! Ihre Nachricht wurde übermittelt. (Demo)"
+         data-en="Thank you! Your message has been sent. (Demo)" hidden>Vielen Dank! Ihre Nachricht wurde übermittelt. (Demo)</p>
+    </form>
+  </div>
+</section>
+
 <!-- ========== FOOTER ========== -->
 <footer class="site-footer" id="kontakt">
   <div class="container">
