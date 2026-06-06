@@ -1,0 +1,68 @@
+/* ============================================
+   DESIGN TOKENS
+   The single source of truth for the look & feel.
+   Override these per-project — everything else
+   reads from these variables.
+   ============================================ */
+
+:root {
+  /* --- Colors --- */
+  --bg: #0f1115;
+  --bg-card: #171a21;
+  --bg-soft: #1d212a;
+  --bg-section: #12141a;
+
+  --text: #f5f6f8;
+  --text-muted: #9aa0ab;
+  --text-dim: #636873;
+
+  --accent: #4f7cff;
+  --accent-dark: #3a63d6;
+  --accent-text: #ffffff;
+
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.28);
+
+  /* --- Fonts --- */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, 'Courier New', monospace;
+
+  /* --- Type scale (fluid) --- */
+  --fs-h1: clamp(2.5rem, 6vw, 5rem);
+  --fs-h2: clamp(2rem, 4vw, 3.5rem);
+  --fs-h3: clamp(1.4rem, 2.5vw, 2rem);
+  --fs-body: clamp(1rem, 1.2vw, 1.125rem);
+  --fs-small: 0.875rem;
+
+  /* --- Spacing & layout --- */
+  --header-h: 72px;
+  --max-w: 1200px;
+  --pad-x: clamp(20px, 4vw, 64px);
+  --section-pad: clamp(4rem, 8vw, 8rem);
+  --gap: clamp(1rem, 2vw, 2rem);
+
+  /* --- Radius & shadow --- */
+  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-lg: 24px;
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+
+  /* --- Motion --- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.45s;
+}
+
+/* Optional light theme — add class="theme-light" to <html> */
+.theme-light {
+  --bg: #ffffff;
+  --bg-card: #f4f5f7;
+  --bg-soft: #eceef1;
+  --bg-section: #f9fafb;
+
+  --text: #14161a;
+  --text-muted: #5a606b;
+  --text-dim: #8a909b;
+
+  --border: rgba(0, 0, 0, 0.10);
+  --border-strong: rgba(0, 0, 0, 0.28);
+}

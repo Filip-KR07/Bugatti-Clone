@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starter — Neue Website</title>
+  <meta name="description" content="Starter-Vorlage für neue Websites." />
+
+  <!-- Fonts (optional — entfernen, wenn nicht gebraucht) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Nur diese eine Datei einbinden — sie importiert den Rest. -->
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container">
+      <a href="#" class="logo">Marke</a>
+      <nav class="nav">
+        <a href="#features">Features</a>
+        <a href="#about">Über uns</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Menü" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="container hero-inner reveal">
+        <span class="eyebrow">Willkommen</span>
+        <h1>Deine neue Website beginnt hier</h1>
+        <p class="lead">Eine schlanke, neutrale Startvorlage mit Design-Tokens, sauberem Reset und ein paar Komponenten — bereit zum Anpassen.</p>
+        <div>
+          <a href="#features" class="btn btn-primary btn-lg">Loslegen</a>
+          <a href="#about" class="btn btn-ghost btn-lg">Mehr erfahren</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Features ===== -->
+    <section id="features">
+      <div class="container">
+        <h2 class="section-title reveal">Features</h2>
+        <div class="grid" style="margin-top: var(--gap)">
+          <article class="card reveal">
+            <h3>Design-Tokens</h3>
+            <p>Farben, Fonts und Abstände an einem Ort — einmal ändern, überall wirksam.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Responsive</h3>
+            <p>Fluid type und Grid-Breakpoints sind bereits eingebaut.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Leichtes JS</h3>
+            <p>Scroll-Effekt, Menü-Toggle und Reveal-Animationen ohne Framework.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section id="about" style="background: var(--bg-section)">
+      <div class="container reveal" style="max-width: 720px; text-align: center">
+        <span class="eyebrow">Über uns</span>
+        <h2 class="section-title">Ersetze diesen Abschnitt</h2>
+        <p class="lead" style="margin-top: 1rem">Dieser Starter ist absichtlich neutral gehalten. Passe Tokens, Texte und Bilder für dein Projekt an.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <p>© <span id="year"></span> Marke — Mit der Starter-Vorlage gebaut.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
