@@ -304,7 +304,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 .hero-fkp .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=2400&auto=format&fit=crop&q=80') center/cover no-repeat;
+  background: url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=2400&auto=format&fit=crop&q=80') center/cover no-repeat;
   filter: brightness(0.5) saturate(1.05) contrast(1.05);
   animation: slow-zoom 20s ease-in-out infinite alternate;
 }
