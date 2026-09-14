@@ -862,6 +862,8 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   font-size: 1.15rem;
   line-height: 1.15;
   margin-bottom: 0.35rem;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 .module-sub {
   font-family: var(--font-mono);
